@@ -1,0 +1,42 @@
+<pk-panel title="'Edit quiz'">
+    <h4><strong>"{{quiz.title}}</strong>"</h4>
+
+    <div class="form-group">
+        <label class="control-label">Title:</label>
+        <input class="form-control" type="text" ng-model="quiz.title" placeholder="Enter test title"/>
+    </div>
+    <div class="form-group">
+        <label class="control-label">Summary:</label>
+        <textarea class="form-control" type="text" ng-model="quiz.summary" rows="4"
+                  placeholder="Enter summary"></textarea>
+    </div>
+
+
+    <div class="form-group">
+        <label class="control-label">Questions:</label>
+
+        <ul class="list-group clearfix">
+            <li class="list-group-item" ng-repeat="question in quiz.questions">
+                {{question.title}}
+                <div class="btn-group btn-group-xs pull-right">
+                    <a href="#/qz-{{quiz.id}}/qn-{{question.id}}/edit" class="btn">
+                        <i class="glyphicon glyphicon-pencil"></i></a>
+                    <a href="#/qz-{{quiz.id}}/qn-{{question.id}}/edit" class="btn">
+                        <i href="#" class="glyphicon glyphicon-remove text-danger"></i>
+                    </a>
+                </div>
+            </li>
+        </ul>
+
+
+        <pk-form-group title="'Add question:'">
+                <input type="text" class="form-control" ng-model="newQTitle" placeholder="Enter question">
+                <div class="input-group-btn">
+                    <button class="btn btn-default" type="button" ng-click="addQuestion(newQTitle)"><i
+                            class="glyphicon glyphicon-plus"></i></button>
+                </div>
+        </pk-form-group>
+    </div>
+
+    <a href="#/" class="btn btn-primary pull-right">Done</a>
+</pk-panel>

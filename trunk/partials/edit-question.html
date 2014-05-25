@@ -1,0 +1,59 @@
+<pk-panel title="'Edit question'">
+<!--    <h4><strong>Quiz: "{{quiz.title}}"</strong></h4>-->
+    <h4 class=""><strong>"{{question.title}}"</strong></h4>
+
+    <div class="form-group">
+        <label class="">Question title:</label>
+        <input type="text" class="form-control" ng-model="question.title" placeholder="Enter question title">
+    </div>
+    <div class="form-group">
+        <label class="">Question:</label>
+        <textarea class="form-control" rows="6" ng-model="question.question" placeholder="Enter question"></textarea>
+    </div>
+    <div class="form-group">
+        <label class="btn-block">Question type:</label>
+
+        <label class="radio-inline"><input type="radio" class="form-control-inline"
+                                           name="qqType"
+                                           ng-model="question.type" value="single">Single
+            choice</label>
+        <label class="radio-inline"><input type="radio" class="form-control-inline"
+                                           name="qqType"
+                                           ng-model="question.type"
+                                           value="multiple">Multiple
+            choice</label>
+    </div>
+    <div class="form-group">
+        <label class="">Answers:</label>
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="ans in question.answers">{{ans}}
+                <i class="glyphicon glyphicon-remove text-danger pull-right"
+                   ng-click="removeAnswer($index)"></i>
+            </li>
+        </ul>
+    </div>
+
+    <pk-form-group title="'Add answer:'" >
+        <input type="text" class="form-control" placeholder="Enter answer" ng-model="newAnswer">
+
+        <div class="input-group-btn">
+            <button class="btn btn-default" type="button" ng-click="addAnswer()"><i
+                    class="glyphicon glyphicon-plus"></i></button>
+        </div>
+    </pk-form-group>
+<!--    <div class="form-group">
+        <label class="">Add answer:</label>
+
+        <div class="input-group">
+            <input type="text" class="form-control" ng-model="newAnswer" placeholder="Enter answer">
+
+            <div class="input-group-btn">
+                <button class="btn btn-default" type="button" ng-click="addAnswer(newAnswer)"><i
+                        class="glyphicon glyphicon-plus"></i></button>
+            </div>
+        </div>
+    </div>-->
+
+    <a href="#/qz-{{quiz.id}}/edit" class="btn btn-primary pull-right">Done</a>
+    </div>
+</pk-panel>

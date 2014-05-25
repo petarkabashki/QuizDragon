@@ -1,0 +1,22 @@
+<div class="jumbotron">
+    <h2 class=""><strong>{{brand}}</strong></h2>
+    <p>A collection of quizes and tests on any topics and from all areas of knowledge</p>
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat="quiz in quizes">
+            <a href="#/qz-{{quiz.id}}">{{quiz.title}}</a>
+
+            <div class="btn-group btn-group-xs pull-right">
+                <a href="#/qz-{{quiz.id}}/edit" class="btn"><i class="glyphicon glyphicon-pencil"></i></a>
+                <a href="#/qz-{{quiz.id}}" class="btn"><i class="glyphicon glyphicon-play"></i></a>
+            </div>
+        </li>
+    </ul>
+
+    <pk-form-group title="'Create a new quiz:'" >
+        <input type="text" class="form-control" ng-model="newQzTitle" placeholder="Enter quiz title">
+        <div class="input-group-btn">
+            <button class="btn btn-default" type="button" ng-click="createQuiz(newQzTitle)"><i class="glyphicon glyphicon-plus"></i></button>
+        </div>
+    </pk-form-group>
+
+</div>

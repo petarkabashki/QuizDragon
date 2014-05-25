@@ -1,0 +1,41 @@
+<div class="jumbotron">
+<!--
+    <h2 class=""><strong>{{brand}}</strong></h2>
+-->
+
+    <h3 class=""><strong>{{quiz.title}}</strong></h3>
+
+    <h4><strong>Question #{{current.index + 1}} of {{quiz.questions.length}}</strong></h4>
+
+    <p class="small">{{question.question}}</p>
+    <h4>Select your answer(s):</h4>
+    <ul class="list-group">
+        <li class="list-group-item" ng-repeat="ans in current.value.answers">
+
+            <label class="">
+                <input type="{{current.value.type === 'single' ? 'radio' : 'checkbox'}}" name="qnAns">
+                {{ans}}
+            </label>
+
+        </li>
+    </ul>
+
+    <div class="">
+        <div class="pull-left">
+            <a href="#/qz-{{quiz.id}}"
+               class="btn btn-primary">Quiz home</a>
+            <a href="#/qz-{{quiz.id}}/complete"
+               class="btn btn-primary">Complete</a>
+        </div>
+
+        <div class="pull-right">
+            <a href="#/qz-{{quiz.id}}/qn-{{current.prev.id}}" ng-show="current.prev"
+               class="btn btn-primary">&laquo;
+                Prev</a>
+            <a href="#/qz-{{quiz.id}}/qn-{{current.next.id}}" ng-show="current.next"
+               class="btn btn-primary">Next &raquo;</a>
+        </div>
+
+    </div>
+
+</div>

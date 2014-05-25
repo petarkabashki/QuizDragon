@@ -1,0 +1,14 @@
+<div>
+    <div>
+        <h3>{{question.question}}</h3>
+        <ul>
+            <li ng-repeat="ans in question.answers">
+                <input id="ans{{ans.id}}" type="radio" name="answer"/>
+                <label for="ans{{ans.id}}" >{{ans.answer}}</label>
+            </li>
+        </ul>
+    </div>
+    <a href="#/q/{{prevqId}}" >Previous</a>
+    <a href="#/q/{{nextqId}}">Next</a>
+</div>
+    
